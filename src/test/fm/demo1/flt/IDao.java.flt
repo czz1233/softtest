@@ -1,0 +1,8 @@
+package com.huayun.ssh.${pkage}.dao;
+
+import com.huayun.ssh.common.dao.IBaseDao;
+import com.huayun.ssh.${pkage}.model.${model};
+
+public interface I${model}Dao extends IBaseDao<${model}, String>{
+
+}

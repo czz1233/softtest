@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* zTree */
+.ztree li a:hover{color:#0024ff;}
+span.tmpzTreeMove_arrow,.ztree .tree_add, .ztree .tree_del,
+.ztree li span.button{background-image:url(zTreeStandard.png);}
+.ztree li a.curSelectedNode{background-color:#e0f0fb; color:black; border:1px #013969 solid;}
+.ztree li a.curSelectedNode_Edit{background-color:#e0f0fb; color:black; border:1px #013969 solid;}
+.ztree li a.tmpTargetNode_inner{background-color:#e0f0fb; color:white; border:1px #013969 solid;}
+ul.ztree.zTreeDragUL{background-color:#cfcfcf; border:1px #587fa1 dotted;}
+ul.tmpTargetzTree{background-color:#e0f0fb;}

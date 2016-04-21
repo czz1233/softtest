@@ -1,0 +1,14 @@
+-- ----------------------------
+-- SYS_RIGHT 添加1级分类权限--系统管理
+-- ----------------------------
+INSERT INTO `SYS_RIGHT` (`ID`, `CODE`, `CREATETIME`, `CREATOR`, `DESCRIBLE`, `ICON`, `ICONCLS`, `IMG_URL`, `NAME`, `PARENT_ID`, `SORT_BY`, `STATUS`, `TYPE`, `URL`) VALUES (UUID(), '#SYSTEM', NOW(), '管理员', '系统管理--1级分类权限', NULL, 'icon-system', NULL, '系统管理', NULL, '1', '1', '1', '#');
+-- ----------------------------
+-- SYS_RIGHT 添加2级分类权限以及菜单权限--账号管理
+-- ----------------------------
+INSERT INTO `SYS_RIGHT` (`ID`, `CODE`, `CREATETIME`, `CREATOR`, `DESCRIBLE`, `ICON`, `ICONCLS`, `IMG_URL`, `NAME`, `PARENT_ID`, `SORT_BY`, `STATUS`, `TYPE`, `URL`) VALUES (UUID(), '#SYSTEM_ACCOUNT_INDEX', NOW(), '管理员', '账号管理--2级菜单权限', NULL, 'icon-menu', '/page/js/jquery-easyui-1.4.3/themes/icons/menu.png', '账号管理', (SELECT A.ID FROM SYS_RIGHT A WHERE A.`CODE` = '#SYSTEM'), '11', '1', '2', 'system/account/index.mvc');
+INSERT INTO `SYS_RIGHT` (`ID`, `CODE`, `CREATETIME`, `CREATOR`, `DESCRIBLE`, `ICON`, `ICONCLS`, `IMG_URL`, `NAME`, `PARENT_ID`, `SORT_BY`, `STATUS`, `TYPE`, `URL`) VALUES (UUID(), '#SYSTEM_ACCOUNT_ADD', NOW(), '管理员', '新增账号--3级按钮权限', NULL, 'icon-add', NULL, '新增账号', (SELECT A.ID FROM SYS_RIGHT A WHERE A.`CODE` = '#SYSTEM_ACCOUNT_INDEX'), '111', '1', '3', 'system/account/add.mvc');
+INSERT INTO `SYS_RIGHT` (`ID`, `CODE`, `CREATETIME`, `CREATOR`, `DESCRIBLE`, `ICON`, `ICONCLS`, `IMG_URL`, `NAME`, `PARENT_ID`, `SORT_BY`, `STATUS`, `TYPE`, `URL`) VALUES (UUID(), '#SYSTEM_ACCOUNT_EDIT', NOW(), '管理员', '编辑账号--3级按钮权限', NULL, 'icon-edit', NULL, '编辑账号', (SELECT A.ID FROM SYS_RIGHT A WHERE A.`CODE` = '#SYSTEM_ACCOUNT_INDEX'), '112', '1', '3', 'system/account/edit.mvc');
+INSERT INTO `SYS_RIGHT` (`ID`, `CODE`, `CREATETIME`, `CREATOR`, `DESCRIBLE`, `ICON`, `ICONCLS`, `IMG_URL`, `NAME`, `PARENT_ID`, `SORT_BY`, `STATUS`, `TYPE`, `URL`) VALUES (UUID(), '#SYSTEM_ACCOUNT_DELETE', NOW(), '管理员', '删除账号--3级按钮权限', NULL, 'icon-remove', NULL, '删除账号', (SELECT A.ID FROM SYS_RIGHT A WHERE A.`CODE` = '#SYSTEM_ACCOUNT_INDEX'), '113', '1', '3', 'system/account/deleteAccount.mvc');
+
+INSERT INTO `SYS_RIGHT` (`ID`, `CODE`, `CREATETIME`, `CREATOR`, `DESCRIBLE`, `ICON`, `ICONCLS`, `IMG_URL`, `NAME`, `PARENT_ID`, `SORT_BY`, `STATUS`, `TYPE`, `URL`) VALUES (UUID(), '#SYSTEM_ACCOUNT_INDEX', NOW(), '管理员', '角色管理--2级菜单权限', NULL, 'icon-menu', '/page/js/jquery-easyui-1.4.3/themes/icons/menu.png', '账号管理', (SELECT A.ID FROM SYS_RIGHT A WHERE A.`CODE` = '#SYSTEM'), '11', '1', '2', 'system/account/index.mvc');
+INSERT INTO `SYS_RIGHT` (`ID`, `CODE`, `CREATETIME`, `CREATOR`, `DESCRIBLE`, `ICON`, `ICONCLS`, `IMG_URL`, `NAME`, `PARENT_ID`, `SORT_BY`, `STATUS`, `TYPE`, `URL`) VALUES (UUID(), '#SYSTEM_ACCOUNT_INDEX', NOW(), '管理员', '权限管理--2级菜单权限', NULL, 'icon-menu', '/page/js/jquery-easyui-1.4.3/themes/icons/menu.png', '账号管理', (SELECT A.ID FROM SYS_RIGHT A WHERE A.`CODE` = '#SYSTEM'), '11', '1', '2', 'system/account/index.mvc');

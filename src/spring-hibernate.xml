@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+     						http://www.springframework.org/schema/beans 
+     						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     						http://www.springframework.org/schema/tx
+     						http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     						http://www.springframework.org/schema/aop 
+     						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+     						http://www.springframework.org/schema/context 
+     						http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     						http://cxf.apache.org/jaxws 
+							http://cxf.apache.org/schemas/jaxws.xsd">
+
+
+  <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+	<property name="url" value="${jdbc.uc.url}" />
+	<property name="username" value="${jdbc.uc.username}" />
+	<property name="password" value="${jdbc.uc.password}" />
+	<property name="initialSize" value="${jdbc.uc.initialSize}" />
+	<property name="maxActive" value="${jdbc.uc.maxActive}" />
+	<property name="minIdle" value="${jdbc.uc.minIdle}" />
+	<property name="maxWait" value="${jdbc.uc.maxWait}" />
+	<property name="poolPreparedStatements" value="true" />
+	<property name="maxPoolPreparedStatementPerConnectionSize" value="33" />
+	<property name="validationQuery" value="${jdbc.uc.validationQuery}" />
+	<property name="testOnBorrow" value="false" />
+	<property name="testOnReturn" value="false" />
+	<property name="testWhileIdle" value="true" />
+	<property name="timeBetweenEvictionRunsMillis" value="${jdbc.uc.timeBetweenEvictionRunsMillis}" />
+	<property name="minEvictableIdleTimeMillis" value="${jdbc.uc.minEvictableIdleTimeMillis}" />
+	<property name="removeAbandoned" value="true" />
+	<property name="removeAbandonedTimeout" value="1800" />
+	<property name="logAbandoned" value="true" />
+	<property name="filters" value="log4j" />
+  </bean>
+  
+	<!-- 配置sessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="namingStrategy">
+			<bean class="com.huayun.ssh.common.hibernate.HibernateImprovedNamingStrategy" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>				
+				<prop key="hibernate.generate_statistics">${hibernate.generate_statistics}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.cglib.use_reflection_optimizer">${hibernate.cglib.use_reflection_optimizer}</prop>
+				<prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop>
+				<prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+				<prop key="javax.persistence.validation.mode">none</prop>
+				<prop key="hibernate.current_session_context_class">${hibernate.current_session_context_class}</prop>				
+			</props>
+		</property>
+		<property name="packagesToScan">
+		  <list>
+			<value>com.huayun.ssh.*.model</value>				   
+		  </list>
+		</property>
+	</bean> 
+	
+		<!-- 配置事务管理 -->
+	<bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 配置事务特性 ，配置add、delete和update开始的方法，事务传播特性为required -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="merge*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="put*" propagation="REQUIRED" />
+			<tx:method name="use*" propagation="REQUIRED" />
+			<tx:method name="init*" propagation="REQUIRED" />
+			<tx:method name="collect*" propagation="REQUIRED" />
+			<tx:method name="act*" propagation="REQUIRED" />
+			<tx:method name="start*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="count*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="list*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="query*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+<!-- 配置那些类的方法进行事务管理 -->	
+	<aop:config>
+		<aop:pointcut id="allManagerMethod" expression="execution (* com.huayun.ssh*..*.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="allManagerMethod" />
+	</aop:config>
+</beans>
+

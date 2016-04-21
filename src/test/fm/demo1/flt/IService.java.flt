@@ -1,0 +1,27 @@
+package com.huayun.ssh.${pkage}.service;
+
+import java.util.List;
+
+import com.huayun.ssh.${pkage}.model.${model};
+
+public interface I${model}Service {
+	
+	${model} getBy${model}(String ${modelLowerCase});
+	
+	int getTableDataCount(String nickName, String ${modelLowerCase});
+
+	List<${model}> getTableData(String nickName, String ${modelLowerCase}, int start, int limit);
+
+	${model} save(${model} ${modelLowerCase});
+
+	${model} getById(String id);
+
+	${model} edit(${model} ${modelLowerCase});
+
+	${model} logicDelete(String id);
+
+	List<${model}> getTableData();
+	
+	
+
+}
