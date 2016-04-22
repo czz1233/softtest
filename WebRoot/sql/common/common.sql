@@ -5,7 +5,8 @@ INSERT INTO `SYS_ROLE` (`ID`, `CREATETIME`, `CREATOR`, `DESCRIBLE`, `ENABLE`, `N
 -- ----------------------------
 -- SYS_ACCOUNT 添加超级管理员用户
 -- ----------------------------
-INSERT INTO `SYS_ACCOUNT` (`ID`, `ACCOUNT`, `CREATETIME`, `CREATOR`, `ENABLE`, `NICK_NAME`, `PASSWORD`, `PHTOTO`, `REMARK`, `SEX`, `STATUS`, `TYEPE_ID`, `TYPE`) VALUES ('18863774-60df-11e5-8a98-742f68372bed', 'admin', NOW(), '管理员', '1', '管理员', '21232f297a57a5a743894a0e4a801fc3', NULL, '系统管理员,勿删', NULL, '1', NULL, NULL);
+INSERT INTO `SYS_ACCOUNT` (`ID`, `ACCOUNT`, `ADDRESS`, `CREATETIME`, `CREATOR`, `DESCRIBLE`, `EMAIL`, `EMAIL_CHECK_CODE`, `EMAIL_CHECK_TAG`, `ENABLE`, `LEVEL`, `NICK_NAME`, `PASSWORD`, `PHTOTO`, `QQ`, `REMARK`, `SEX`, `STATUS`, `TEL`, `TYEPE_ID`, `TYPE`) VALUES ('18863774-60df-11e5-8a98-742f68372bed', 'admin', NULL, '2016-04-20 17:01:55', '超级管理员[admin]', '超级管理员，管理系统', NULL, NULL, NULL, '', NULL, '超级管理员', '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL);
+
 
 -- ----------------------------
 -- SYS_ROLE_RIGHT给超级管理员角色授予权限

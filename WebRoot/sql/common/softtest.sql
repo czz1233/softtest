@@ -4,188 +4,16 @@ Navicat MySQL Data Transfer
 Source Server         : 127.0.0.1
 Source Server Version : 50613
 Source Host           : 127.0.0.1:3306
-Source Database       : story
+Source Database       : softtest
 
 Target Server Type    : MYSQL
 Target Server Version : 50613
 File Encoding         : 65001
 
-Date: 2016-04-20 17:03:24
+Date: 2016-04-22 15:44:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
-
--- ----------------------------
--- Table structure for STY_BOOKRACK
--- ----------------------------
-DROP TABLE IF EXISTS `STY_BOOKRACK`;
-CREATE TABLE `STY_BOOKRACK` (
-  `ID` varchar(50) NOT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `CREATOR` varchar(255) DEFAULT NULL,
-  `STATUS` int(11) DEFAULT NULL,
-  `ACCOUNT` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `FK_gu175w3uddnss5oosca1v2018` (`ACCOUNT`),
-  CONSTRAINT `FK_gu175w3uddnss5oosca1v2018` FOREIGN KEY (`ACCOUNT`) REFERENCES `sys_account` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of STY_BOOKRACK
--- ----------------------------
-
--- ----------------------------
--- Table structure for STY_BOOKRACK_STORY
--- ----------------------------
-DROP TABLE IF EXISTS `STY_BOOKRACK_STORY`;
-CREATE TABLE `STY_BOOKRACK_STORY` (
-  `ID` varchar(50) NOT NULL,
-  `BOOK_RACK` varchar(50) DEFAULT NULL,
-  `STORY` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `FK_fjsts832nx06nhrdtrybqnp96` (`BOOK_RACK`),
-  KEY `FK_pdkt7385d9x4mh61rhbb1pn3n` (`STORY`),
-  CONSTRAINT `FK_pdkt7385d9x4mh61rhbb1pn3n` FOREIGN KEY (`STORY`) REFERENCES `sty_story` (`ID`),
-  CONSTRAINT `FK_fjsts832nx06nhrdtrybqnp96` FOREIGN KEY (`BOOK_RACK`) REFERENCES `sty_bookrack` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of STY_BOOKRACK_STORY
--- ----------------------------
-
--- ----------------------------
--- Table structure for STY_BOOKTAG
--- ----------------------------
-DROP TABLE IF EXISTS `STY_BOOKTAG`;
-CREATE TABLE `STY_BOOKTAG` (
-  `ID` varchar(50) NOT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `CREATOR` varchar(255) DEFAULT NULL,
-  `STATUS` int(11) DEFAULT NULL,
-  `ACCOUNT` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `FK_qs4qshrhqwhx8rtkkk5qcp9ju` (`ACCOUNT`),
-  CONSTRAINT `FK_qs4qshrhqwhx8rtkkk5qcp9ju` FOREIGN KEY (`ACCOUNT`) REFERENCES `sys_account` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of STY_BOOKTAG
--- ----------------------------
-
--- ----------------------------
--- Table structure for STY_BOOKTAGSTORY
--- ----------------------------
-DROP TABLE IF EXISTS `STY_BOOKTAGSTORY`;
-CREATE TABLE `STY_BOOKTAGSTORY` (
-  `ID` varchar(50) NOT NULL,
-  `BOOK_TAG` varchar(50) DEFAULT NULL,
-  `STORY` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `FK_ll7dtp9c162hrtw44q2r6kjlw` (`BOOK_TAG`),
-  KEY `FK_jejxjqbe85cqbeiml0al3oxwp` (`STORY`),
-  CONSTRAINT `FK_jejxjqbe85cqbeiml0al3oxwp` FOREIGN KEY (`STORY`) REFERENCES `sty_story` (`ID`),
-  CONSTRAINT `FK_ll7dtp9c162hrtw44q2r6kjlw` FOREIGN KEY (`BOOK_TAG`) REFERENCES `sty_booktag` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of STY_BOOKTAGSTORY
--- ----------------------------
-
--- ----------------------------
--- Table structure for STY_COMMENT
--- ----------------------------
-DROP TABLE IF EXISTS `STY_COMMENT`;
-CREATE TABLE `STY_COMMENT` (
-  `ID` varchar(50) NOT NULL,
-  `CONTENT` varchar(255) DEFAULT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `CREATOR` varchar(255) DEFAULT NULL,
-  `REPLAY_TIME` datetime DEFAULT NULL,
-  `REPLAY_USER` varchar(255) DEFAULT NULL,
-  `REPLY_CONTENT` varchar(255) DEFAULT NULL,
-  `STATE` int(11) DEFAULT NULL,
-  `STATUS` int(11) DEFAULT NULL,
-  `STORY` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `FK_iw5boifnfijb6k2m5sifet003` (`STORY`),
-  CONSTRAINT `FK_iw5boifnfijb6k2m5sifet003` FOREIGN KEY (`STORY`) REFERENCES `sty_story` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of STY_COMMENT
--- ----------------------------
-
--- ----------------------------
--- Table structure for STY_SECTION
--- ----------------------------
-DROP TABLE IF EXISTS `STY_SECTION`;
-CREATE TABLE `STY_SECTION` (
-  `ID` varchar(50) NOT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `CREATOR` varchar(255) DEFAULT NULL,
-  `SECTION` varchar(255) DEFAULT NULL,
-  `SNAME` varchar(255) DEFAULT NULL,
-  `SREAD_NUM` bigint(20) DEFAULT NULL,
-  `STATUS` int(11) DEFAULT NULL,
-  `SUPDATE` datetime DEFAULT NULL,
-  `SWORD_NUM` bigint(20) DEFAULT NULL,
-  `STORY` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `FK_nxxm26ivfl2tuuh5t42rufj8u` (`STORY`),
-  CONSTRAINT `FK_nxxm26ivfl2tuuh5t42rufj8u` FOREIGN KEY (`STORY`) REFERENCES `sty_story` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of STY_SECTION
--- ----------------------------
-
--- ----------------------------
--- Table structure for STY_STORY
--- ----------------------------
-DROP TABLE IF EXISTS `STY_STORY`;
-CREATE TABLE `STY_STORY` (
-  `ID` varchar(50) NOT NULL,
-  `COLLECT_NUM` int(11) DEFAULT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `CREATOR` varchar(255) DEFAULT NULL,
-  `DESCRIBLE` varchar(255) DEFAULT NULL,
-  `IMAGE_URL` varchar(255) DEFAULT NULL,
-  `NAME` varchar(255) DEFAULT NULL,
-  `READ_COUNT` bigint(20) DEFAULT NULL,
-  `STATE` int(11) DEFAULT NULL,
-  `STATUS` int(11) DEFAULT NULL,
-  `UPDATE_TIME` datetime DEFAULT NULL,
-  `WORD_COUNT` bigint(20) DEFAULT NULL,
-  `AUTHOR` varchar(50) DEFAULT NULL,
-  `STORY_TYPE` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `FK_fxhc6ogqt44o6bbs4h83jb9vk` (`AUTHOR`),
-  KEY `FK_7k8mcfljrp16sj7m4f0c4t2hw` (`STORY_TYPE`),
-  CONSTRAINT `FK_7k8mcfljrp16sj7m4f0c4t2hw` FOREIGN KEY (`STORY_TYPE`) REFERENCES `sty_storytype` (`ID`),
-  CONSTRAINT `FK_fxhc6ogqt44o6bbs4h83jb9vk` FOREIGN KEY (`AUTHOR`) REFERENCES `sys_account` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of STY_STORY
--- ----------------------------
-
--- ----------------------------
--- Table structure for STY_STORYTYPE
--- ----------------------------
-DROP TABLE IF EXISTS `STY_STORYTYPE`;
-CREATE TABLE `STY_STORYTYPE` (
-  `ID` varchar(50) NOT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `CREATOR` varchar(255) DEFAULT NULL,
-  `DESCRIBLE` varchar(255) DEFAULT NULL,
-  `NAME` varchar(255) DEFAULT NULL,
-  `STATUS` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of STY_STORYTYPE
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for SYS_ACCOUNT
@@ -378,12 +206,12 @@ CREATE TABLE `SYS_ROLE_RIGHT` (
 -- ----------------------------
 -- Records of SYS_ROLE_RIGHT
 -- ----------------------------
-INSERT INTO `SYS_ROLE_RIGHT` VALUES ('8663844f-e86b-11e5-b9fb-00e0667c4153', '88c16fc2-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
-INSERT INTO `SYS_ROLE_RIGHT` VALUES ('867b48a3-e86b-11e5-b9fb-00e0667c4153', '89329c24-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
-INSERT INTO `SYS_ROLE_RIGHT` VALUES ('867b49ca-e86b-11e5-b9fb-00e0667c4153', '8950cd83-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
-INSERT INTO `SYS_ROLE_RIGHT` VALUES ('867b4a6e-e86b-11e5-b9fb-00e0667c4153', '894187b7-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
-INSERT INTO `SYS_ROLE_RIGHT` VALUES ('867b4b11-e86b-11e5-b9fb-00e0667c4153', '8913013f-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
-INSERT INTO `SYS_ROLE_RIGHT` VALUES ('867b4bb8-e86b-11e5-b9fb-00e0667c4153', '0c371896-e78d-11e5-b46c-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
-INSERT INTO `SYS_ROLE_RIGHT` VALUES ('867b4c4f-e86b-11e5-b9fb-00e0667c4153', '0c6032e5-e78d-11e5-b46c-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
-INSERT INTO `SYS_ROLE_RIGHT` VALUES ('86b4848c-e86b-11e5-b9fb-00e0667c4153', '0c4d9236-e78d-11e5-b46c-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
-INSERT INTO `SYS_ROLE_RIGHT` VALUES ('86b485a3-e86b-11e5-b9fb-00e0667c4153', '0c2339fe-e78d-11e5-b46c-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
+INSERT INTO `SYS_ROLE_RIGHT` VALUES ('0de3fb5b-085e-11e6-9a07-742f68372bed', '88c16fc2-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
+INSERT INTO `SYS_ROLE_RIGHT` VALUES ('0de3fedc-085e-11e6-9a07-742f68372bed', '89329c24-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
+INSERT INTO `SYS_ROLE_RIGHT` VALUES ('0de3ffe3-085e-11e6-9a07-742f68372bed', '8950cd83-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
+INSERT INTO `SYS_ROLE_RIGHT` VALUES ('0de400b1-085e-11e6-9a07-742f68372bed', '894187b7-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
+INSERT INTO `SYS_ROLE_RIGHT` VALUES ('0de40182-085e-11e6-9a07-742f68372bed', '8913013f-d3e1-11e5-9a09-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
+INSERT INTO `SYS_ROLE_RIGHT` VALUES ('0de40254-085e-11e6-9a07-742f68372bed', '0c371896-e78d-11e5-b46c-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
+INSERT INTO `SYS_ROLE_RIGHT` VALUES ('0de40360-085e-11e6-9a07-742f68372bed', '0c6032e5-e78d-11e5-b46c-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
+INSERT INTO `SYS_ROLE_RIGHT` VALUES ('0de40420-085e-11e6-9a07-742f68372bed', '0c4d9236-e78d-11e5-b46c-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
+INSERT INTO `SYS_ROLE_RIGHT` VALUES ('0e38c175-085e-11e6-9a07-742f68372bed', '0c2339fe-e78d-11e5-b46c-00e0667c4153', '0760c4a9-60df-11e5-8a98-742f68372bed');
