@@ -13,6 +13,7 @@ import java.util.Map;
 
 import com.huayun.ssh.softtest.model.SoftWare;
 import com.huayun.ssh.softtest.model.SoftWareType;
+import com.huayun.ssh.softtest.model.TestExample;
 import com.huayun.ssh.softtest.model.TestPlan;
 import com.huayun.ssh.softtest.model.TestPlanType;
 import com.huayun.ssh.system.model.Role;
@@ -94,8 +95,8 @@ public class FreemarkerUtil2 {
     
     public static void main(String[] args) {
     	
-    	Field   fields[] = TestPlan.class.getDeclaredFields(); 
-    	String className = TestPlan.class.getName();
+    	Field   fields[] = TestExample.class.getDeclaredFields(); 
+    	String className = TestExample.class.getName();
     	
     	
     	Map<String, Object> param = new HashMap<String, Object>();

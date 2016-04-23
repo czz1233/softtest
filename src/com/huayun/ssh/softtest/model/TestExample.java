@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -38,6 +39,10 @@ public class TestExample extends BaseEntity{
 	private String creator;// 创建者
 	//关联字段
 	private TestPlan testPlan;
+	
+	//非数据库字段
+	private String testPlanStr;
+	
 	@Id
 	@Column(name = "ID", length = 50)
 	@GenericGenerator(name = "TestExample", strategy = "uuid")
@@ -100,6 +105,13 @@ public class TestExample extends BaseEntity{
 	}
 	public void setTestPlan(TestPlan testPlan) {
 		this.testPlan = testPlan;
+	}
+	@Transient
+	public String getTestPlanStr() {
+		return this.getTestPlan() == null ? "" : this.getTestPlan().getTitle();
+	}
+	public void setTestPlanStr(String testPlanStr) {
+		this.testPlanStr = testPlanStr;
 	}
 	
 	
