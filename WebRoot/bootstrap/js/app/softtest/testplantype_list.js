@@ -38,7 +38,7 @@ define(function(require, exports, moudle) {
 				$("#main-content").load(url);
 			},
 			editRecordShow:function(id){
-				var url = basePath + "softtest/testplan/" + id +"/editRecordShow";
+				var url = basePath + "softtest/testplantype/" + id +"/editRecordShow";
 				$("#main-content").load(url);
 			},
 			deleteRecord:function(id){

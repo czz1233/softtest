@@ -15,15 +15,7 @@
 				<input name="id" type="hidden" value="${testplantype.id}" />
 
 					<div class="form-group">
-						<label for="id" class="col-sm-3 control-label no-padding-right">id：</label>
-						<div class="col-sm-9 no-padding">
-							<span class="block input-icon input-icon-right col-xs-10 col-sm-5"> 
-								<input id="id" type="text" name="id" class="width-100" value="${testplantype.id}"> 
-							</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="name" class="col-sm-3 control-label no-padding-right">name：</label>
+						<label for="name" class="col-sm-3 control-label no-padding-right">类型名称：</label>
 						<div class="col-sm-9 no-padding">
 							<span class="block input-icon input-icon-right col-xs-10 col-sm-5"> 
 								<input id="name" type="text" name="name" class="width-100" value="${testplantype.name}"> 
@@ -31,35 +23,9 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="remark" class="col-sm-3 control-label no-padding-right">remark：</label>
-						<div class="col-sm-9 no-padding">
-							<span class="block input-icon input-icon-right col-xs-10 col-sm-5"> 
-								<input id="remark" type="text" name="remark" class="width-100" value="${testplantype.remark}"> 
-							</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="status" class="col-sm-3 control-label no-padding-right">status：</label>
-						<div class="col-sm-9 no-padding">
-							<span class="block input-icon input-icon-right col-xs-10 col-sm-5"> 
-								<input id="status" type="text" name="status" class="width-100" value="${testplantype.status}"> 
-							</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="createTime" class="col-sm-3 control-label no-padding-right">createTime：</label>
-						<div class="col-sm-9 no-padding">
-							<span class="block input-icon input-icon-right col-xs-10 col-sm-5"> 
-								<input id="createTime" type="text" name="createTime" class="width-100" value="${testplantype.createTime}"> 
-							</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="creator" class="col-sm-3 control-label no-padding-right">creator：</label>
-						<div class="col-sm-9 no-padding">
-							<span class="block input-icon input-icon-right col-xs-10 col-sm-5"> 
-								<input id="creator" type="text" name="creator" class="width-100" value="${testplantype.creator}"> 
-							</span>
+						<label for="remark" class="col-sm-3 control-label no-padding-right">备注说明：</label>
+						<div class="col-sm-9">
+							<textarea id="remark" name="remark" class="col-xs-10 col-sm-5" rows="3" cols="">${testplantype.remark}</textarea>
 						</div>
 					</div>
 			</form>

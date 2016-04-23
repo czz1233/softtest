@@ -28,12 +28,7 @@ define(function(require, exports, moudle) {
 			},
 			validateEditForm:function(){
 				var rules = {			
-									id:{required: true,maxlength:120,charVal:"#id"},
-									name:{required: true,maxlength:120,charVal:"#name"},
-									remark:{required: true,maxlength:120,charVal:"#remark"},
-									status:{required: true,maxlength:120,charVal:"#status"},
-									createTime:{required: true,maxlength:120,charVal:"#createTime"},
-									creator:{required: true,maxlength:120,charVal:"#creator"},
+									name:{required: true,maxlength:120,charVal:"#name"}
 								
 							};			
 				formUtil.validateForm(moudle.exports.formID,rules,{});

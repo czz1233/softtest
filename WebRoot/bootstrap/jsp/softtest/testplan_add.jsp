@@ -33,7 +33,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right">调档时间：</label>
+						<label class="col-sm-3 control-label no-padding-right">测试开始：</label>
 						<div class="date form_datetime input-group col-sm-4 no-padding" data-date-format="yyyy-mm-dd hh:ii">
 						   <input id="beginTime" name="beginTime" readonly="readonly" class="width-100"  type="text"  />
 						    <span class="input-group-addon">
@@ -45,7 +45,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right">调档时间：</label>
+						<label class="col-sm-3 control-label no-padding-right">测试结束：</label>
 						<div class="date form_datetime input-group col-sm-4 no-padding" data-date-format="yyyy-mm-dd hh:ii">
 						   <input id="endTime" name="endTime" readonly="readonly" class="width-100"  type="text"  />
 						    <span class="input-group-addon">

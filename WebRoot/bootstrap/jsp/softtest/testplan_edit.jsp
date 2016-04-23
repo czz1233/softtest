@@ -31,22 +31,6 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="beginTime" class="col-sm-3 control-label no-padding-right">beginTime：</label>
-						<div class="col-sm-9 no-padding">
-							<span class="block input-icon input-icon-right col-xs-10 col-sm-5"> 
-								<input id="beginTime" type="text" disabled="disabled" class="width-100" value="${testplan.beginTime}"> 
-							</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="endTime" class="col-sm-3 control-label no-padding-right">endTime：</label>
-						<div class="col-sm-9 no-padding">
-							<span class="block input-icon input-icon-right col-xs-10 col-sm-5"> 
-								<input id="endTime" type="text" disabled="disabled" class="width-100" value="${testplan.endTime}"> 
-							</span>
-						</div>
-					</div>
-					<div class="form-group">
 						<label for="remark" class="col-sm-3 control-label no-padding-right">备注信息：</label>
 						<div class="col-sm-9 no-padding">
 							<span class="block input-icon input-icon-right col-xs-10 col-sm-5"> 
