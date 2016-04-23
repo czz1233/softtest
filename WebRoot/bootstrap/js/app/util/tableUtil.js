@@ -359,10 +359,14 @@ define(function(require, exports, moudle) {
 			},
 			formatWeiXinPmtStatus:function(data){
 				var html = '';
-				if (data == 1) {
-					html = '<span class="badge  badge-warning ">精华</span>';
-				} else{
-					html = '<span class="badge  badge-default ">非精华</span>';
+				if (data ==0) {
+					html = '<span class="badge  badge-default ">待审核</span>';
+				} else if(data ==1){
+					html = '<span class="badge  badge-success ">审核通过</span>';
+				}else if(data ==-1){
+						html = '<span class="badge  badge-danger ">审核不通过</span>';
+				}else{
+					html = data;
 				}
 				return html;
 			},

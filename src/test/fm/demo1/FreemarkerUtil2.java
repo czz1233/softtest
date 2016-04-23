@@ -11,12 +11,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.huayun.ssh.story.model.BookRack;
-import com.huayun.ssh.story.model.BookTag;
-import com.huayun.ssh.story.model.Comment;
-import com.huayun.ssh.story.model.Section;
-import com.huayun.ssh.story.model.Story;
-import com.huayun.ssh.story.model.StoryType;
+import com.huayun.ssh.softtest.model.SoftWare;
+import com.huayun.ssh.softtest.model.SoftWareType;
+import com.huayun.ssh.softtest.model.TestPlan;
+import com.huayun.ssh.softtest.model.TestPlanType;
 import com.huayun.ssh.system.model.Role;
 
 import freemarker.template.Configuration;
@@ -96,8 +94,8 @@ public class FreemarkerUtil2 {
     
     public static void main(String[] args) {
     	
-    	Field   fields[] = Comment.class.getDeclaredFields(); 
-    	String className = Comment.class.getName();
+    	Field   fields[] = TestPlan.class.getDeclaredFields(); 
+    	String className = TestPlan.class.getName();
     	
     	
     	Map<String, Object> param = new HashMap<String, Object>();
@@ -122,8 +120,8 @@ public class FreemarkerUtil2 {
     	param.put("pkageUpperCase", pck.toUpperCase());
     	param.put("pkageLowerCase", pck.toLowerCase());
     	
-    	param.put("parentMenuName", "阅读管理");
-    	param.put("modelName", "小说评论");
+    	param.put("parentMenuName", "测试管理");
+    	param.put("modelName", "软件");
     	param.put("fieldNames", fieldNames);
     	
 		FreemarkerUtil2 fku =  new FreemarkerUtil2();

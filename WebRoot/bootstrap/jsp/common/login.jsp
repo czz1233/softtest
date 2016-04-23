@@ -5,7 +5,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>网络小说管理系统</title>
+		<title> 软件测试用例管理系统</title>
 
 		<meta name="description" content="User login page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -64,7 +64,7 @@
 							<div class="center">
 								<h2>
 									<i class="ace-icon fa fa-recycle green"></i>
-									<span class="blue" id="id-text2 grey">网络小说管理系统</span>
+									<span class="blue" id="id-text2 grey"> 软件测试用例管理系统</span>
 								</h2>
 							</div>
 
@@ -96,10 +96,10 @@
 												<div class="space"></div>
 
 												<div class="clearfix">
-													<button id="regist_button" type="button" class="btn btn-sm btn-success btn-round">
+													<%--<button id="regist_button" type="button" class="btn btn-sm btn-success btn-round">
 														<i class="ace-icon fa fa-sign-in"></i> <span class="bigger-110">注册</span>
 													</button>
-													<button id="login_button" type="button" class="pull-right btn btn-sm btn-primary btn-round">
+													--%><button id="login_button" type="button" class="pull-right btn btn-sm btn-primary btn-round">
 														<i class="ace-icon fa fa-key"></i> <span class="bigger-110">登陆</span>
 													</button>
 												</div>

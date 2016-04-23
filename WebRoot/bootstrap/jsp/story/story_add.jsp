@@ -34,7 +34,7 @@
 						<label for="name" class="col-sm-3 control-label no-padding-right">类型：</label>
 						<div class="col-sm-9 no-padding">
 							<span class="block input-icon input-icon-right  col-xs-10 col-sm-5"> 
-							<select id="typeId" name="typeId" class="width-100 form-control">
+							<select id="type" name="type" class="width-100 form-control">
 								<c:forEach items="${storyTypeList }" var="ty">
 									<option value="${ty.id }">${ty.name }</option>
 								</c:forEach>

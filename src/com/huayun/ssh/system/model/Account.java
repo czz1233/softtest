@@ -23,9 +23,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.huayun.ssh.common.entity.BaseEntity;
 import com.huayun.ssh.common.init.DictionaryUtil;
-import com.huayun.ssh.story.model.BookRack;
-import com.huayun.ssh.story.model.BookTag;
-import com.huayun.ssh.story.model.Story;
 
 /**
  *账号
@@ -66,13 +63,6 @@ public class Account extends BaseEntity{
 	//级联关系
 	private List<AccountRole> accountRoleList = new ArrayList<AccountRole>();//账号角色
 	private List<AccountRight> accountRightList = new ArrayList<AccountRight>();//账号权限
-	
-	private List<Story> storieList = new ArrayList<Story>();//小说信息 --作者写的书
-	
-	private List<BookRack> bookRackList = new ArrayList<BookRack>();//小说书架，收藏的书在这
-	
-	private List<BookTag> bookTagList = new ArrayList<BookTag>();//小说书签，收藏的章节房这里
-	
 	
 	//非数据库字段，用于显示
 	private String sexStr;//性别，从字典表中取：PERSION_SEX
@@ -274,37 +264,5 @@ public class Account extends BaseEntity{
 	public void setQq(String qq) {
 		this.qq = qq;
 	}
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="author",orphanRemoval=true)
-	@Cascade(value={CascadeType.SAVE_UPDATE})
-	@BatchSize(size=20)
-	@JsonIgnore
-	public List<Story> getStorieList() {
-		return storieList;
-	}
-	public void setStorieList(List<Story> storieList) {
-		this.storieList = storieList;
-	}
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="account",orphanRemoval=true)
-	@Cascade(value={CascadeType.SAVE_UPDATE})
-	@BatchSize(size=20)
-	@JsonIgnore
-	public List<BookRack> getBookRackList() {
-		return bookRackList;
-	}
-	public void setBookRackList(List<BookRack> bookRackList) {
-		this.bookRackList = bookRackList;
-	}
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="account",orphanRemoval=true)
-	@Cascade(value={CascadeType.SAVE_UPDATE})
-	@BatchSize(size=20)
-	@JsonIgnore
-	public List<BookTag> getBookTagList() {
-		return bookTagList;
-	}
-	public void setBookTagList(List<BookTag> bookTagList) {
-		this.bookTagList = bookTagList;
-	}
-	
-	
 	
 }

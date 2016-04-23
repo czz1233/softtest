@@ -7,7 +7,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>网络小说管理系统</title>
+		<title>软件测试用例管理系统</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -98,7 +98,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="ace-icon fa fa-recycle"></i>
-							网络小说管理系统
+							 软件测试用例管理系统
 						</small>
 					</a>
 
@@ -307,7 +307,7 @@
 					<!-- #section:basics/footer -->
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">网络小说管理系统</span>
+							<span class="blue bolder">软件测试用例管理系统</span>
 							&copy; 2016
 						</span>
 
