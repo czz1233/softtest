@@ -10,10 +10,6 @@
   <div class="container-fluid">
   		<div class="row">
 	    	<div class="col-xs-6 no-padding">
-	    		<button type="button" id="button_add" class="btn btn-white btn-sm btn-round">
-					<i class="ace-icon fa fa-plus bigger-120"></i>
-					新增
-				</button>
 	    	</div>
 	    	<table width='100%' id="testplan_table" class="table table-striped table-bordered table-hover">
 	    		<thead>
