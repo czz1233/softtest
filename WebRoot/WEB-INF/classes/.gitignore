@@ -1,9 +1,0 @@
-/applicationContext.xml
-/com
-/hibernate.properties
-/jdbc-bsm.properties
-/log4j.properties
-/mybatis-bsm-config.xml
-/spring-hibernate.xml
-/spring-servlet-config.xml
-/test
